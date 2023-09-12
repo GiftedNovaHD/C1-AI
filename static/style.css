@@ -4,11 +4,15 @@ body, h1, h2, p, form, button {
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  overflow: scroll;
+}
+
 /* Set a background color and font for the entire page */
 body {
   background-color: #f0f0f0;
   font-family: Arial, sans-serif;
-  overflow: hidden; /* Hide overflow to prevent horizontal scrollbar */
 }
 
 /* Create a rainbow wave animation */
@@ -38,17 +42,18 @@ main {
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-height: 80vh;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 .centered-heading {
   text-align: center; /* Center horizontally */
+  max-width: 100%;
 }
 
 /* Style the "Back to Home" button */
 .back-button {
+  width: 20%;
+  margin: auto;
   display: block;
   margin-top: 20px;
   text-align: center;
@@ -145,4 +150,17 @@ button[type="submit"]:hover {
   margin-top: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.object {
+  margin: 10px auto 10px;
+}
+
+.diagram {
+  width: 100%;
+
+}
+/* AI when it can't give u the response u want*/
+.stupid {
+  margin-top: 10px;
 }

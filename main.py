@@ -53,7 +53,7 @@ def infer() -> str | None:
   finally:
     conn.close()
   
-  return render_template('index.html', result=detection_info, image_url=f"images/{image_file.filename}") 
+  return render_template('index.html', result=detection_info, image_url=f"images/{image_file.filename}", redirect=True) 
 
 @app.route("/")
 def homepage():

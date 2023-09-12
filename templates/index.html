@@ -21,10 +21,46 @@
   {% if result %}
   <div class="result">
     <h2>Classification Result:</h2>
-    <p>{{ result }}</p>
+    <style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;}
+      .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+      .tg .tg-0npm{background-color:#cbcefb;border-color:#000000;font-size:16px;text-align:center;vertical-align:top}
+      .tg .tg-cg1m{background-color:#cbcefb;border-color:#000000;text-align:left;vertical-align:top}
+      </style>
+      <table class="tg" style="undefined;table-layout: fixed; width: 100%">
+      <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="tg-0npm"><span style="font-weight:bold">Detected Objects</span><br></th>
+          <th class="tg-0npm"><span style="font-weight:bold">Confidence (%)</span><br></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in result %}
+        <tr>
+          <td class="tg-cg1m">{{ object["class_name"] }}</td>
+          <td class="tg-cg1m">{{ object["confidence"]|float * 100.0 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+
     <img src="{{ url_for("static", filename=image_url) }}" alt="Uploaded Image">
   </div>
   {% endif %}
+
+  {% if redirect and not result %}
+  <div class="stupid">
+    <p>This AI too stupid to detect your image :( </p>
+    <p>Give it something less complicated life isn't perfect :(</p>
+  {% endif %}
+  </div>
   </main>
 
   <footer> 
