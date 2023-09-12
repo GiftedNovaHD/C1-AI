@@ -4,7 +4,7 @@ This repository contains a web-based tool for AI image object detection built up
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Keep in view](#Keep-in-view)
+- [Keep in view](#keep-in-view)
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -54,7 +54,16 @@ The web interface of our tool allows users to interact with the DETR model seaml
 - **Real-time inference**: The tool provides real-time inference, allowing users to see the detection results instantly.
 - **Beautifully-styled rainbow effect**: No explanation needed
 
+## Additional Notes 
 
+#### Database Tables
+`Images(ImageID, ImageName, ImageFile, UploadDate)`
 
+`Detections(DetectionID, ImageID, Class, Confidence, Location)`
 
+#### Normalization (3NF)
+The database schema provided in the SQL statements is already in the 3rd Normal Form (3NF) as it satisfies the following conditions:
+- Atomic Values: Each attribute (column) contains atomic values, and there are no multi-valued attributes.
+- No Partial Dependencies: There are no partial dependencies. All non-key attributes depend on the entire primary key.
+- No Transitive Dependencies: There are no transitive dependencies. Non-key attributes do not depend on other non-key attributes.
 
