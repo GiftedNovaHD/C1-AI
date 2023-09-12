@@ -4,12 +4,14 @@ This repository contains a web-based tool for AI image object detection built up
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Keep in view](#Keep-in-view)
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [DETR model](#detr-model)
 - [Web Interface](#web-interface)
+
 
 
 ## Introduction
@@ -20,6 +22,9 @@ Our web-based AI image object detection tool is designed to simplify the process
 - **Web Interface**: A user-friendly web interface allows users to upload images for object detection and view the results directly on the webpage.
 - **DETR Model**: The DETR model, as described in the research paper, is used as the underlying AI model for object detection. It provides accurate and efficient results.
 - **Real-time Inference**: The tool performs real-time inference, making it suitable for a wide range of applications, including image analysis, content moderation, and more.
+
+## Keep in view
+Please note that this tool is still in development. Expect errors here and there when navigating and using the Flask framework. 
 
 ## Getting Started
 
