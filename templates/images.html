@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <!--CSS here -->
+</head>
+<body>
+  <h1>Image Gallery</h1>
+  <div class="image-container">
+    {% for image in image_data %}
+      <div class="image-card">
+        <img src="{{ url_for('static', filename='images/' + image.ImageFile) }}" alt="{{ image.ImageName }}">
+        <p>{{ image.ImageName }}</p>
+        <p>Uploaded on: {{ image.UploadDate }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

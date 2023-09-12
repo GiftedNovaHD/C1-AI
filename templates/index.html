@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Classification</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+      <h1>Image Classify AI</h1>
+      <a href="/about" class="back-button">Read More</a>
+  </header>
+  <main>
+    <form action="/classify" method="post" enctype="multipart/form-data">
+      <label for="image">Upload an image:</label>
+      <input type="file" name="image" id="image" accept=".jpg, .jpeg" required>
+      <button type="submit">Classify</button>
+    </form>
+  
+  {% if result %}
+  <div class="result">
+    <h2>Classification Result:</h2>
+    <p>{{ result }}</p>
+    <img src="{{ url_for("static", filename=image_url) }}" alt="Uploaded Image">
+  </div>
+  {% endif %}
+  </main>
+
+  <footer> 
+    <a href = "/about.html"About the Architecture</a>
+  </footer>
+</body>
+</html>
+
