@@ -11,6 +11,9 @@ This repository contains a web-based tool for AI image object detection built up
   - [Installation](#installation)
 - [DETR model](#detr-model)
 - [Web Interface](#web-interface)
+- [Additional Notes](#additional-notes)
+  - [User Documentation](#user-documentation)
+  - [Administrator Documentation](#administrator-documentation)
 
 
 
@@ -52,9 +55,10 @@ The web interface of our tool allows users to interact with the DETR model seaml
 
 - **Upload Image**: Users can upload an image directly from their local device.
 - **Object Detection**: Once the image is uploaded, the tool performs object detection using DETR and displays the results, including bounding boxes around detected objects and their corresponding class labels.
-- ~~**Customization**: Users can adjust detection parameters, such as confidence threshold, to fine-tune the detection results.~~
 - **Real-time inference**: The tool provides real-time inference, allowing users to see the detection results instantly.
-- **Beautifully-styled rainbow effect**: No explanation needed
+- **Beautifully-styled rainbow effect**: No explanation needed. 
+- **Images classified by objects present**: Our tool not only detects objects in uploaded images but also provides detailed classifications of objects present within the image. After uploading an image and clicking the "Classify" button, users will be presented with a tabulated view of the detected objects. This feature makes it easy for users to quickly identify and categorize objects in their images.
+
 
 ## Additional Notes 
 
