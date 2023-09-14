@@ -58,6 +58,11 @@ The web interface of our tool allows users to interact with the DETR model seaml
 
 ## Additional Notes 
 
+#### Problem Statement
+Do you want your images to be sorted by objects in the photo? This tool is the ideal tool for sorting images based on objects present in the photo. 
+
+The objective of the project is to allow users to view and classify their images based on objects present within the image. 
+
 #### User Documentation 
 1. Navigate to `localhost:5000` on _any_ modern web browser of your choice (e.g. Chrome, Edge, Safari, Firefox, Brave).
 2. You should be able to view the rainbow-styled header of the website. 
@@ -67,11 +72,16 @@ The web interface of our tool allows users to interact with the DETR model seaml
 6. If you want to view more about the architecture, please click on "Read More" at the top of the home-page. 
 
 #### Administrator Documentation
+1. Navigate to `localhost:5000/admin_panel` on _any_ modern web browser of your choice (e.g. Chrome, Edge, Safari, Firefox, Brave). 
+2. Given that the features of this image classifier AI does not need any sort of updating, the only relevant use case for a web-administrator would be to perform `DELETE` operations.
+3. Click on "delete" to delete an image from the web-server. 
 
 #### Database Tables
 `Images(ImageID, ImageName, ImageFile, UploadDate)`
 
-`Detections(DetectionID, ImageID, Class, Confidence, Location)`
+`Detections(DetectionID, ImageID, ClassID, Confidence, Location)`
+
+`Classes(ClassID, ClassName)`
 
 #### Normalization (3NF)
 The database schema provided in the SQL statements is already in the 3rd Normal Form (3NF) as it satisfies the following conditions:
