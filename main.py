@@ -110,9 +110,36 @@ def show_image():
 def about_the_architecture(): 
   return render_template("about.html")
 
-@app.route("/delete_image", methods=["POST"]) 
+@app.route("/admin_panel")
+def administrator():
+
+  try:
+    conn = sqlite3.connect('image_classification.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT ImageID, ImageName, ImageFile, UploadDate FROM Images")
+
+    image_data = []
+    for row in cursor.fetchall():
+      image_data.append({
+      "ImageID": row[0],
+      "ImageName": row[1],
+      "ImageFile": row[2],
+      "UploadDate": row[3]
+      })
+  
+    conn.close()
+
+  except Exception as e:
+    conn.close()
+    return render_template("error.html", error=e)
+
+  return render_template("admin_panel.html", image_data=image_data)
+
+
+@app.route("/delete")
 def delete_image(): 
-  image_id = request.form.get("image_id")
+  image_id = request.args.get("id")
   
   if image_id is None: 
     return render_template("error.html", error="No image ID provided for deletion")
@@ -124,18 +151,18 @@ def delete_image():
     cursor.execute(f"SELECT ImageFile FROM Images WHERE ImageID = ?", (image_id))
     image_path = cursor.fetchone()[0]
 
-    cursor.execute("DELETE FROM Images WHERE ImageID = ?", (image_id,))
+    cursor.execute("DELETE FROM Images WHERE ImageID = ?", (image_id))
     conn.commit()
 
-    os.remove(image_path)
+    os.remove("./static/" + image_path)
 
   except Exception as e: 
-    return render_template("error.html", error=Exception)
+    return render_template("error.html", error=e)
   
   finally: 
     conn.close()
   
-  return redirect("index.html")
+  return redirect("admin_panel")
 
 if __name__ == "__main__": 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
