@@ -11,9 +11,9 @@
   <div class="image-container">
     {% for image in image_data %}
       <div class="image-card">
-        <img src="{{ url_for('static', filename='images/' + image.ImageFile) }}" alt="{{ image.ImageName }}">
-        <p>{{ image.ImageName }}</p>
-        <p>Uploaded on: {{ image.UploadDate }}</p>
+        <img src="{{ url_for('static', filename=image["ImageFile"]) }}" alt="{{ image["ImageName"] }}">
+        <p>{{ image["ImageName"] }}</p>
+        <p>Uploaded on: {{ image["UploadDate"] }}</p>
       </div>
     {% endfor %}
   </div>

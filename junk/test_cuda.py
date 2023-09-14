@@ -3,9 +3,9 @@
 
 import torch
 import torch.nn as nn
-import timeit
 
-device = torch.device("CUDA-enabled GPU" if torch.cuda.is_available() else "cpu")
+
+device = torch.device("CUDA-enabled GPU" if torch.cuda.is_available() else "CPU")
 print(f"Using device: {device}")
 print("Running tests...")
 
@@ -32,4 +32,4 @@ print("Performing matrix multiplication test...")
 tensor1 = torch.randn(64, 64)
 tensor2 = torch.randn(64, 64)
 print(f"64 * 64 matmul experiment results performed on {device}: ")
-timeit.timeit(torch.matmul(tensor1, tensor2))
+torch.matmul(tensor1, tensor2)

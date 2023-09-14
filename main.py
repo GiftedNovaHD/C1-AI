@@ -1,4 +1,3 @@
-# Penis
 import torch
 from transformers import DetrImageProcessor, DetrForObjectDetection
 from PIL import Image
@@ -40,7 +39,7 @@ def infer() -> str | None:
         })
 
   try:
-    conn = sqlite3.connect("image_classification.db")
+    conn = sqlite3.connect("image_classification.db", isolation_level=None)
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -48,7 +47,8 @@ def infer() -> str | None:
                    VALUES (?,?,?)
     """, (image_file.filename, image_path, upload_date))
 
-  except sqlite3.Error as e: 
+  except sqlite3.Error as e:
+    conn.close()
     return render_template('error.html', error=e)
   finally:
     conn.close()
@@ -76,13 +76,12 @@ def view_images():
       "UploadDate": row[3]
       })
   
-    return render_template('image.html', image_data=image_data) #fuck jinja 
+    conn.close()
+    return render_template('images.html', image_data=image_data)  
   except sqlite3.Error as e: 
     print(f"Database error: {e}")
-    return []
-  
-  finally: 
     conn.close()
+    return render_template('error.html', error=e)
 
 @app.route("/image")
 def show_image():
@@ -99,6 +98,7 @@ def show_image():
     image = cursor.fetchall()[0]
   
   except Exception as e:
+    conn.close()
     return render_template("error.html", error=e)
 
   finally:
@@ -112,6 +112,7 @@ def about_the_architecture():
 
 if __name__ == "__main__": 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+  print("Currently using: ", device, "for inference.")
 
   processor = DetrImageProcessor.from_pretrained("facebook/detr-resnet-101")
   model = DetrForObjectDetection.from_pretrained("facebook/detr-resnet-101")
