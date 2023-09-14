@@ -1,7 +1,7 @@
 import torch
 from transformers import DetrImageProcessor, DetrForObjectDetection
 from PIL import Image
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 import os
 import datetime
@@ -109,6 +109,33 @@ def show_image():
 @app.route("/about")
 def about_the_architecture(): 
   return render_template("about.html")
+
+@app.route("/delete_image", methods=["POST"]) 
+def delete_image(): 
+  image_id = request.form.get("image_id")
+  
+  if image_id is None: 
+    return render_template("error.html", error="No image ID provided for deletion")
+  
+  try: 
+    conn = sqlite3.connect('image_classification.db')
+    cursor = conn.cursor()
+
+    cursor.execute(f"SELECT ImageFile FROM Images WHERE ImageID = ?", (image_id))
+    image_path = cursor.fetchone()[0]
+
+    cursor.execute("DELETE FROM Images WHERE ImageID = ?", (image_id,))
+    conn.commit()
+
+    os.remove(image_path)
+
+  except Exception as e: 
+    return render_template("error.html", error=Exception)
+  
+  finally: 
+    conn.close()
+  
+  return redirect("index.html")
 
 if __name__ == "__main__": 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

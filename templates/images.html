@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Gallery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
   <!--CSS here -->
 </head>
 <body>
-  <h1>Image Gallery</h1>
+  <header>
+      <h1>Image Gallery</h1>
+      <a href="/" class="back-button">Back</a>
+  </header>
   <div class="image-container">
     {% for image in image_data %}
       <div class="image-card">
