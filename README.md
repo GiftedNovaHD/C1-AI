@@ -37,9 +37,10 @@ Before running the web tool, ensure you have the following prerequisites install
 - NVIDIA GPU with CUDA support (highly recommended for inference)
 - PyTorch >= 2.0.1 (if I remember correctly)
 
-### Installation
-1. Navigate to `main.py`.
-2. Create a virtual environment in that directory and install the dependencies required in `requirements.txt`.
+### Installation and Running
+1. Create a virtual environment in that directory and install the dependencies required in `requirements.txt`.
+2. Navigate to `main.py`.
+3. Run `main.py`, and naviagte to the address `localhost:5000` or `127.0.0.1` on any browser. 
 
 ## DETR Model
 Our tool utilizes the DEtection TRansformer (DETR) model, as described in the research paper. DETR represents a breakthrough in object detection by treating it as a set prediction problem, eliminating the need for many hand-designed components. The model can be easily generalized for various object detection tasks and provides state-of-the-art performance.
