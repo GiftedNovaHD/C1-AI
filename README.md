@@ -24,7 +24,8 @@ Our web-based AI image object detection tool is designed to simplify the process
 - **Real-time Inference**: The tool performs real-time inference, making it suitable for a wide range of applications, including image analysis, content moderation, and more.
 
 ## Keep in view
-Please note that this tool is still in development. Expect errors here and there when navigating and using the Flask framework. 
+- Please note that this tool is still in development. Expect errors here and there when navigating and using the micro-web-app. 
+- To my knowledge, inference can be performed on the CPU, if a CUDA-enabled GPU is not available.
 
 ## Getting Started
 
