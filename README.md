@@ -18,9 +18,9 @@ This repository contains a web-based tool for AI image object detection built up
 Our web-based AI image object detection tool is designed to simplify the process of detecting objects in images. It utilizes the DETR model, which treats object detection as a set prediction problem, eliminating the need for many hand-designed components. This tool provides an intuitive and user-friendly interface for users to upload images and receive object detection results.
 
 ## Features
-- **Object Detection**: The tool uses the DETR model to detect objects within images, providing bounding box predictions and class labels for each object.
+- **Object Detection**: The tool uses the DETR model to detect objects within images, providing class labels for each object.
 - **Web Interface**: A user-friendly web interface allows users to upload images for object detection and view the results directly on the webpage.
-- **DETR Model**: The DETR model, as described in the research paper, is used as the underlying AI model for object detection. It provides accurate and efficient results.
+- **DETR Model**: The DETR model, as described in the research paper, is used as the underlying AI model for object detection. It provides relatively accurate and efficient results.
 - **Real-time Inference**: The tool performs real-time inference, making it suitable for a wide range of applications, including image analysis, content moderation, and more.
 
 ## Keep in view
@@ -57,6 +57,16 @@ The web interface of our tool allows users to interact with the DETR model seaml
 - **Beautifully-styled rainbow effect**: No explanation needed
 
 ## Additional Notes 
+
+#### User Documentation 
+1. Navigate to `localhost:5000` on _any_ modern web browser of your choice (e.g. Chrome, Edge, Safari, Firefox, Brave).
+2. You should be able to view the rainbow-styled header of the website. 
+3. On the main page, click on "Browse", and select your image to be uploaded to the web-server.
+4. Click on "Classify", and you should be redirected to the results of your classified image in a tabulated form.
+5. You may exit to the home-page by clicking on "Back to Home" on the site that displays the classified image.
+6. If you want to view more about the architecture, please click on "Read More" at the top of the home-page. 
+
+#### Administrator Documentation
 
 #### Database Tables
 `Images(ImageID, ImageName, ImageFile, UploadDate)`
