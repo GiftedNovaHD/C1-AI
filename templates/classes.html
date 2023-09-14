@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifier Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
+  </head>
+  <body>
+    <header>
+      <h1>Detected Objects</h1>
+      <a href="/" class="back-button">Back</a>
+    </header>
+    {% for class, image_data in data.items() %}
+      <h2 style="text-align: center;">{{ class }}</h2>
+      <div class="image-container">
+        {% for image in image_data %}
+          <div class="image-card">
+            <a href="/image?id={{ image["ImageID"] }}">
+            <img src="{{ url_for('static', filename=image["ImageFile"]) }}" alt="{{ image["ImageName"] }}">
+            <p>{{ image["ImageName"] }}</p>
+            <p>Uploaded on: {{ image["UploadDate"] }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </body>
+</html>

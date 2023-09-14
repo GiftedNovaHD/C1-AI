@@ -15,9 +15,11 @@
   <div class="image-container">
     {% for image in image_data %}
       <div class="image-card">
+        <a href="/image?id={{ image["ImageID"] }}">
         <img src="{{ url_for('static', filename=image["ImageFile"]) }}" alt="{{ image["ImageName"] }}">
         <p>{{ image["ImageName"] }}</p>
         <p>Uploaded on: {{ image["UploadDate"] }}</p>
+        </a>
       </div>
     {% endfor %}
   </div>

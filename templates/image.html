@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
 </head>
 <body>
-  <h1>Image Gallery</h1>
-  <div class="image-container">
-      <div class="image-card">
-        <img src="{{ url_for('static', filename=image.ImageFile ) }}" alt="{{ image.ImageName }}">
-        <p>{{ image.ImageName }}</p>
-        <p>Uploaded on: {{ image.UploadDate }}</p>
-      </div>
+  <header>
+      <h1>Image</h1>
+      <a href="/" class="back-button">Back</a>
+  </header>
+  <div class="image-card" style="width: 30%; margin: auto;">
+    <img src="{{ url_for('static', filename=image["ImageFile"]) }}" alt="{{ image["ImageName"] }}">
+    <p>{{ image["ImageName"] }}</p>
+    <p>Uploaded on: {{ image["UploadDate"] }}</p>
   </div>
 </body>
 </html>
