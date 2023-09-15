@@ -74,6 +74,8 @@ The objective of the project is to allow users to view and classify their images
 4. Click on "Classify", and you should be redirected to the results of your classified image in a tabulated form.
 5. You may exit to the home-page by clicking on "Back to Home" on the site that displays the classified image.
 6. If you want to view more about the architecture, please click on "Read More" at the top of the home-page. 
+7. To view the all the images that have been uploaded to the web server so far, navigate to "Image Gallery". The images are conveniently placed into image cards for ease of viewing. It should be noted that the image file names are the same as the original image uploaded to the web server. 
+8. Lastly, to view the detected objects in each image uploaded, simply navigate back to the homepage and click on "View Detected Objects". Alternatively, you can navigate to `localhost:5000/classes` to access that page. 
 
 #### Administrator Documentation
 1. Navigate to `localhost:5000/admin_panel` on _any_ modern web browser of your choice (e.g. Chrome, Edge, Safari, Firefox, Brave). 
